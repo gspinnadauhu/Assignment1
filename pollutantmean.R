@@ -6,13 +6,8 @@ pollutantmean<-function(directory,pollutant,id=1:332){
                 paste0("C:/Users/mlang2/Dropbox/Coursera/R Programming/Assignment1/",x)
         }
 #Above here is tested and correct                
-                
-        if(x=="sulfate"|"nitrate"){
-                pollutant<-x
-        }
-        if(is.numeric(y) && y<333){
-                id<-y
-        }
-        read.csv(directory)
+
+
+        read.csv(paste0(directory,as.numeric(id),".csv"))
         mean(pollutant[!is.na(pollutant)])
 }
