@@ -1,13 +1,18 @@
 #Part 1 pollutantmean function
 pollutantmean<-function(directory,pollutant,id=1:332){
-        directory<-function(...) {
-                args<-list(...)
-                x<-args[["directory"]]
-                paste0("C:/Users/mlang2/Dropbox/Coursera/R Programming/Assignment1/",x)
+        if (basename(getwd())!=directory){
+                setwd(file.path(getwd(),directory))      
         }
-#Above here is tested and correct                
+        else{}
+        if (id<10){
+                data<-read.csv(paste0("0","0",as.character(id),".csv"))
+        }
+        else if (id>=10&id<100){
+                data<-read.csv(paste0("0",as.character(id),".csv"))
+        }
+        else {
+                data<-read.csv(paste0(as.character(id),".csv"))
+        }
 
-
-        read.csv(paste0(directory,as.numeric(id),".csv"))
-        mean(pollutant[!is.na(pollutant)])
+        
 }
