@@ -57,7 +57,7 @@ corr<-function(directory,threshold=0){
         }
         correllations<-vector("numeric")
         results<-complete(directory,1:332)
-        results<-subset(results,nobs>=threshold,select=c(id,nobs))
+        results<-subset(results,nobs>threshold,select=c(id,nobs))
         for (i in results$id){
                 if (i<10){
                         data<-read.csv(paste0("0","0",as.character(i),".csv"))
