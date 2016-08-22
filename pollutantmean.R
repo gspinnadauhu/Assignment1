@@ -27,3 +27,25 @@ pollutantmean<-function(directory,pollutant,id=1:332){
         }
         return(total/count)
 }
+#Part 2
+complete<-function(directory,id=1:332){
+        if (basename(getwd())!=directory){
+                setwd(file.path(getwd(),directory))      
+        }
+        idvect<-id
+        for (i in id){
+                if (i<10){
+                        data<-read.csv(paste0("0","0",as.character(i),".csv"))
+                }
+                else if (i>=10&i<100){
+                        data<-read.csv(paste0("0",as.character(i),".csv"))
+                }
+                else {
+                        data<-read.csv(paste0(as.character(i),".csv"))
+                }
+                
+                compcases<-complete.cases(data)
+                results<-
+        }
+        
+}
